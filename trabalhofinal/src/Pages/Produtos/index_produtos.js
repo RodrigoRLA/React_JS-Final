@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { apiLocal } from "../../Services";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Contexto } from "../../Context/index_data.js";
+import { apiLocal } from "../../Services/index_services";
 
-import { Button, Container, InfoUsuario } from "./style";
+import {
+    Button, ButtonCard, Card, Container, ContainerContent, ContainerTitle, Title
+} from "./style_produtos";
 
-export const About = () => {
+export const Produtos = () => {
 
-    const [produtos, setProdutos] = useState([])
+    const [produtos, setProdutos] = useState()
 
-    let { nome } = useParams()
+    const ctx = useContext(Contexto)
+
     let navigate = useNavigate()
 
     function handleClick() {
@@ -16,42 +20,49 @@ export const About = () => {
     }
 
     const getProdutos = async () => {
-        var produto = await apiLocal.get(`/produtos/{id}`)
+        var produto = await apiLocal.get(`/produto/all`)
         setProdutos(produto.data)
-    }
-
-    const getDescricao = async () => {
-        var response = await apiLocal.get(`/produtos/{id}/descricao`)
-        //console.log("Resposta das Categorias:", response.data);
+        console.log(produto.data);
     }
 
     useEffect(() => {
         getProdutos()
-        getDescricao()
     }, [])
 
-    console.log("log:", produtos);
+    ctx?.setProdutos(produtos)
+
+    // console.log("log:", produtos);
 
     return (
         <Container>
-            <h1> Tela Sobre</h1>
-            <InfoUsuario>
-                <h3 >Usuário logado:{nome}</h3>
-            </InfoUsuario>
-            <h2>Quem somos?</h2>
-            <h3> Somos uma turma de react Js</h3>
-            <Button cor="#C793e1" onClick={() => handleClick()}>Voltar para home</Button>
-
-            {racas.map((res) => {
+        <ContainerTitle>
+            <Title> Conheça os nossos Produtos! </Title>
+        </ContainerTitle>
+        <ContainerContent>
+            {produtos?.map((res, index) => {
                 return (
-                    <>
-                        <div>Nome do produto:{res?.nome}</div>
-                        <div>Descrição:{res?.descricao}</div>
-                        <br />
-                    </>
-                )
-            })}
+                    
+                        <Card key={index} >
+                            
+                                <img src={res.imagemUrl} width="180px" height="120px" alt="imagem"/>
+                                <div style={{fontSize: "1.3rem"}}>{res?.nome}</div>
 
+                                <ButtonCard >
+                                    {res?.valorUnitario}
+                                </ButtonCard>
+                                {/* <p>Descrição:{res?.descricao}</p> */}
+                           
+                        </Card>
+                ) 
+            })}
+            </ContainerContent>
+                
+           
+            <Button onClick={() => handleClick()}>Voltar para home</Button>
         </Container>
+  
     )
 }
+
+
+

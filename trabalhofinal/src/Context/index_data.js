@@ -1,29 +1,16 @@
 import React, { useState } from "react";
 
-
-
-Nota: trocar dados
-
-export const estadoContexto = {
-
-    nome: "Luciano"
-
-}
-
-export const DataContext = React.createContext(null)
+export const DataContext = React.createContext()
 
 
 
-export const Contexto = (props) => {
+export const Contexto = props => {
 
-    const [dados, setDados] = useState(estadoContexto)
+    const [produto, setProduto] = useState([])
 
-    function handleSetNome(e) {
-        setDados({ nome: e.target.value })
-    }
-
+   
     return (
-        <DataContext.Provider value={{ dados, handleSetNome }}>
+        <DataContext.Provider value={{ produto, setProduto }}>
             {props.children}
         </DataContext.Provider>
     )

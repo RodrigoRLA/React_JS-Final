@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Home } from "../Pages/Home";
-import { NotFound } from "../Pages/NotFound";
-import { About } from "../Pages/Produtos";
+import { Home } from "../Pages/Home/index_home";
+import { NotFound } from "../Pages/NotFound/index_not_found";
+import { Produtos } from "../Pages/Produtos/index_produtos";
 
 export const Root = () => {
 
@@ -11,7 +11,7 @@ export const Root = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/quemsomos/:nome" element={<About />} />
+                <Route path="/produtos" element={<Produtos />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
