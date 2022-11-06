@@ -1,25 +1,28 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import Container from './Components/Container';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import { Home } from './Pages/Home';
 import { About } from './Pages/About/About';
 import {NotFound} from './Pages/NotFound';
+import { Hardware } from './Pages/Categorias/hardware';
+import { Notebooks } from './Pages/Categorias/notebook';
+import { Periféricos } from './Pages/Categorias/perifericos';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-            <Container customClass="min-height">
               <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="/quemsomos" element={<About/>} />
+                <Route path="/hardware" element={<Hardware/>} />
+                <Route path="/notebook" element={<Notebooks/>} />
+                <Route path="/perifericos" element={<Periféricos/>} />
                 <Route path="*" element={<NotFound/>} />
               </Routes>
-              </Container>
         <Footer />
       </BrowserRouter>   
     </div>
