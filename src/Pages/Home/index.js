@@ -31,14 +31,14 @@ export const Home = () => {
                 <CardCategorias>
                     <Link to={"/hardware"}>
                         <img src="https://www.gamespot.com/a/uploads/screen_kubrick/1551/15511094/3667472-gaming-pc-build-2020--how-to-build-a-gaming-pc-from-scratch-promothumb2.jpg" width="100%" height="250rem" />
-                        <div>Hardware</div>
                     </Link>
+                        <div>Hardware</div>
                  </CardCategorias>
                  <CardCategorias>
                     <Link to={"/notebook"}>
                         <img src="https://images.kabum.com.br/produtos/fotos/264621/notebook-lenovo-ultrafino-ideapad-ryzen-5-5500u-8gb-256gb-ssd-15-6-full-hd-linux-cinza-82mfs00100_1637242641_original.jpg" width="100%" height="250rem" />
-                        <div>Notebook</div>
                     </Link>
+                        <div>Notebook</div>
                  </CardCategorias>
                  <CardCategorias>
                     <Link to={"/perifericos"}>

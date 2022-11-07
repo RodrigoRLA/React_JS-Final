@@ -9,6 +9,7 @@ import {NotFound} from './Pages/NotFound';
 import { Hardware } from './Pages/Categorias/hardware';
 import { Notebooks } from './Pages/Categorias/notebook';
 import { Periféricos } from './Pages/Categorias/perifericos';
+import { Carrinho } from './Pages/Carrinho';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/hardware" element={<Hardware/>} />
                 <Route path="/notebook" element={<Notebooks/>} />
                 <Route path="/perifericos" element={<Periféricos/>} />
+                <Route path="/carrinho" element={<Carrinho/>} />
                 <Route path="*" element={<NotFound/>} />
               </Routes>
         <Footer />
