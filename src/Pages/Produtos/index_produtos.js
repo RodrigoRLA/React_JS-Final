@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import { Contexto } from "../../Context/data.js";
 import { api } from "../../Services/index";
 
-import {
-    ButtonCard, Card, Cat, ContainerContent, ContainerP, ContainerTitle, Title
-} from "../Produtos/style_produtos";
+import { BarraLateral, ButtonCard, Card, Cat, ContainerB, ContainerContent, ContainerP, ContainerTitle, Title } from "./style_produtos";
 
-export const Notebooks = () => {
+export const Produtos = () => {
 
     const [produtos, setProdutos] = useState()
 
     const ctx = useContext(Contexto)
 
+  
     const getProdutos = async () => {
         var produto = await api.get(`/produto/all`)
         setProdutos(produto.data)
@@ -31,22 +30,26 @@ export const Notebooks = () => {
         
         <ContainerP>
         <ContainerTitle>
-            <Title> Notebooks </Title>
+            <Title> Conheça os nossos Produtos! </Title><br/>
         </ContainerTitle>
+        <ContainerB>
         <Cat>
+            <BarraLateral>
         <Link to={"/hardware"}>
-					<span>Hardwares</span>
+					<span>Hardwares</span><br/>
 				</Link>
 				<Link to={"/perifericos"}>
-					<span>Periféricos</span>
+					<span>Periféricos</span><br/>
 				</Link>
 				<Link to={"/notebook"}>
-					<span>Notebooks</span>
+					<span>Notebooks</span><br/>
 				</Link>
+                </BarraLateral>
         </Cat>
         <ContainerContent>
             {produtos?.map((res, index) => {
-                return (
+               
+                return ( 
                     
                         <Card key={index} >
                             
@@ -54,17 +57,17 @@ export const Notebooks = () => {
                                 <div style={{fontSize: "1.3rem"}}>{res?.nome}</div>
 
                                 <ButtonCard >
-                                    {res?.valorUnitario}
+                                    R${res?.valorUnitario}
                                 </ButtonCard>
-                                {/* <p>Descrição:{res?.descricao}</p> */}
                            
                         </Card>
-                ) 
+                )
             })}
+
             </ContainerContent>
-                
+          </ContainerB>
         </ContainerP>
-       
   
     )
 }
+

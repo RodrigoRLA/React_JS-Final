@@ -1,15 +1,16 @@
-import './App.css';
 import React from 'react';
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './App.css';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
-import { Home } from './Pages/Home';
 import { About } from './Pages/About/About';
-import {NotFound} from './Pages/NotFound';
+import { Carrinho } from './Pages/Carrinho';
 import { Hardware } from './Pages/Categorias/hardware';
 import { Notebooks } from './Pages/Categorias/notebook';
-import { Periféricos } from './Pages/Categorias/perifericos';
-import { Carrinho } from './Pages/Carrinho';
+import { Perifericos } from './Pages/Categorias/perifericos';
+import { Home } from './Pages/Home';
+import { NotFound } from './Pages/NotFound';
+import { Produtos } from './Pages/Produtos/index_produtos';
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
         <Navbar />
               <Routes>
                 <Route path="/" element={<Home/>} />
+                <Route path="/produtos" element={<Produtos/>} />
                 <Route path="/quemsomos" element={<About/>} />
                 <Route path="/hardware" element={<Hardware/>} />
                 <Route path="/notebook" element={<Notebooks/>} />
-                <Route path="/perifericos" element={<Periféricos/>} />
+                <Route path="/perifericos" element={<Perifericos/>} />
                 <Route path="/carrinho" element={<Carrinho/>} />
                 <Route path="*" element={<NotFound/>} />
               </Routes>

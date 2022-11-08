@@ -69,13 +69,13 @@ display: block;
 /* box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22); */
 /* padding: 2rem; */
 /* margin: 1rem; */
-width: 27rem;
+width: 37rem;
 justify-self: center;
 font-size: 1.50rem;
 font-weight: 350;
 transition: all 0.3s ease-out;
 &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     color: #ffbb33;
     font-size: 1.75rem;
     }

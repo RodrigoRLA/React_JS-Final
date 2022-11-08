@@ -17,10 +17,7 @@ function Navbar() {
 				<Link to={"/#"}>
 					<span>Home</span>
 				</Link>
-				<Link to={"#"}>
-					<span>Categorias</span>
-				</Link>
-				<Link to={"#"}>
+				<Link to={"/produtos"}>
 					<span>Produtos</span>
 				</Link>
 				<Link to={"/quemsomos"}>
